@@ -1,0 +1,166 @@
+
+ <div class="search">
+ <div class="form-control datesearch">  
+<div class="form-group startdate" >  
+    <label class="startdate"for="">StartDate</label>  
+    <input type="datetime-local" class="form-control startdate"  id="fini"#startDate>  
+    
+  </div>  
+ 
+
+<div class="form-group endDate">  
+    <label  class="enddate" for="">EndDate</label>  
+    <input type="datetime-local" class="form-control enddate" id="ffin" #endDate>  
+  </div>  
+  <button type="button" class="btn btn-default enddate" (click)=" getFilteredDate(startDate.value, endDate.value)">Filter Data</button>
+  </div>
+</div>
+
+<div class="puredata">
+    <button type="button"class="btn btn-succeess"(click)="pureGrData()">{{buttonValue}}</button>
+</div>
+<table id="example" class="display nowrap" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>GR.NO.</th>
+                <th>From</th>
+                
+                <th>To</th>
+                   <th>GR DESCRITION</th>
+                <th>NUG TYPE</th>
+                <th>NUG</th>
+                <th>WEIGHT</th>
+                <th>RATE PER KG</th>
+                <th>FREIGHT</th>
+                <th>TYPE</th>
+                <th>PVT MARKA</th>
+
+                <th>SENDER NAME</th>
+                <th>SENDER GST</th>
+                <th>RECIEVER NAME</th>
+                <th> RECIEVER GST</th>
+                <TH>GR CREATION TIME</TH>
+           
+            <!--   <th *ngIf="showGRData">ITEM Name 1</th>
+                <th *ngIf="showGRData">NUG 1</th>
+                <th *ngIf="showGRData">ITEM PER NUG 1</th>
+                <th *ngIf="showGRData">ITEM COUNT 1</th>
+                <th *ngIf="showGRData">ITEM COST 1</th>
+                 <th *ngIf="showGRData">HSN 1</th>
+                 <th *ngIf="showGRData">GST Amount 1</th>
+                <th *ngIf="showGRData">SUBTOTAL 1</th>
+                 <th *ngIf="showGRData">TOTAL 1</th>
+
+                 <th *ngIf="showGRData">ITEM Name 2</th>
+                <th *ngIf="showGRData">NUG 2</th>
+                <th *ngIf="showGRData">ITEM PER NUG 2</th>
+                <th *ngIf="showGRData">ITEM COUNT 2</th>
+                <th *ngIf="showGRData">ITEM COST 2</th>
+                 <th *ngIf="showGRData">HSN 2</th>
+                 <th *ngIf="showGRData">GST Amount 2</th>
+                <th *ngIf="showGRData">SUBTOTAL 2</th>
+                 <th *ngIf="showGRData">TOTAL 2</th>
+
+                 <th *ngIf="showGRData">ITEM Name 3</th>
+                 <th *ngIf="showGRData">NUG 3</th>
+                 <th *ngIf="showGRData">ITEM PER NUG 3</th>
+                 <th *ngIf="showGRData">ITEM COUNT 3</th>
+                 <th *ngIf="showGRData">ITEM COST 3</th>
+                  <th *ngIf="showGRData">HSN 3</th>
+                  <th *ngIf="showGRData">GST Amount 3</th>
+                 <th *ngIf="showGRData">SUBTOTAL 3</th>
+                  <th *ngIf="showGRData">TOTAL 3</th>
+
+                  <th *ngIf="showGRData">ITEM Name 4</th>
+                  <th *ngIf="showGRData">NUG 4</th>
+                  <th *ngIf="showGRData">ITEM PER NUG 4</th>
+                  <th *ngIf="showGRData">ITEM COUNT 4</th>
+                  <th  *ngIf="showGRData">ITEM COST 4</th>
+                   <th *ngIf="showGRData">HSN 4</th>
+                   <th *ngIf="showGRData">GST Amount 4</th>
+                  <th *ngIf="showGRData">SUBTOTAL 4</th>
+                   <th *ngIf="showGRData">TOTAL 4</th>
+
+                   <th *ngIf="showGRData">ITEM Name 5</th>
+                   <th *ngIf="showGRData">NUG 5</th>
+                   <th  *ngIf="showGRData">ITEM PER NUG 5</th>
+                   <th  *ngIf="showGRData">ITEM COUNT 5</th>
+                   <th *ngIf="showGRData">ITEM COST 5</th>
+                    <th  *ngIf="showGRData">HSN 5</th>
+                    <th  *ngIf="showGRData">GST Amount 5</th>
+                   <th *ngIf="showGRData">SUBTOTAL 5</th>
+                    <th  *ngIf="showGRData">TOTAL 5</th> -->
+            </tr>
+        </thead>
+        <tfoot>
+           
+        </tfoot>
+        <tbody >
+            <tr *ngFor="let grreport of grreports| slice: 0: limit">
+                <td >{{grreport.GR_No}}</td>
+                <td>{{grreport.from}}</td>
+                <td>{{grreport.route}}</td>
+           <td>{{grreport.description }}</td>
+               <td>{{grreport.nugType }}</td>
+                 <td>{{grreport.nug }}</td>
+               <td>{{grreport.weight }}</td>
+               <td>{{grreport.ratePerKg }}</td>
+               <td>{{grreport.freight }}</td>
+               <td>{{grreport.format }}</td>
+               <td>{{grreport.pvtMarka }}</td>
+               <td>{{grreport.sendername }}</td>
+               <td>{{grreport.senderGST }}</td>
+              <td>{{grreport.receiverName }}</td>
+               <td>{{grreport.receiverGST }}</td>
+               <td>{{grreport.createdAt }}</td>
+
+           <!--  <td *ngIf="showGRData">{{grreport.itemName_1 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemsPerNug_1 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemCount_1 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemCost_1 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemHsn_1 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemGst_1 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemSubtotal_1 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemTotal_1 }}</td>
+
+               <td *ngIf="showGRData">{{grreport.itemName_2 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemsPerNug_2 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemCount_2 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemCost_2 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemHsn_2 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemGst_2 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemSubtotal_2 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemTotal_2 }}</td>
+
+               <td *ngIf="showGRData">{{grreport.itemName_3 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemsPerNug_3 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemCount_3 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemCost_3 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemHsn_3 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemGst_3 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemSubtotal_3 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemTotal_3 }}</td>
+
+               <td *ngIf="showGRData">{{grreport.itemName_4 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemsPerNug_4 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemCount_4 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemCost_4 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemHsn_4 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemGst_4 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemSubtotal_4 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemTotal_4 }}</td>
+
+               <td *ngIf="showGRData">{{grreport.itemName_5 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemsPerNug_5 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemCount_5 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemCost_5 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemHsn_5 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemGst_5 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemSubtotal_5 }}</td>
+               <td *ngIf="showGRData">{{grreport.itemTotal_5 }}</td> -->
+            
+            </tr>
+          
+        </tbody>
+        
+    </table>
